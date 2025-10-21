@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  log_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: seagale/log:latest
+    container_name: log_app
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:3007:3000"
