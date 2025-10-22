@@ -21,3 +21,4 @@ docker run -d \
   -e HOST=0.0.0.0 -e PORT=3000 \
   --restart unless-stopped \
   log-app:latest
+  

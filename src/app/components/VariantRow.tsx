@@ -1,3 +1,5 @@
+// src\app\components\VariantRow.tsx
+
 "use client";
 import React from "react";
 import type { VariantInventory } from "../types/index";

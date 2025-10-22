@@ -1,3 +1,5 @@
+// src\app\api\airtable\logs-stocks42-49\route.ts
+ 
 import { NextRequest, NextResponse } from "next/server";
 import { airtableCreateStockLog } from "../../../lib/airtable";
 

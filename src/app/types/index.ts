@@ -1,3 +1,5 @@
+// src\app\types\index.ts
+
 export type ProductHit = {
   id: string;
   title: string;

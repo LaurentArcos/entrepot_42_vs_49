@@ -1,3 +1,5 @@
+// src\app\page.tsx
+
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 import Search from "./components/Search";
@@ -81,11 +83,19 @@ export default function Page() {
   const [showModal, setShowModal] = useState(false);
   const [operatorName, setOperatorName] = useState("");
 
-  async function fetchAirtableQty(inventoryItemNumericId: number): Promise<number> {
-    const r = await fetch(`/api/airtable/stocks42-49?inventoryItemNumericId=${inventoryItemNumericId}`, { cache: "no-store" });
-    const j = await r.json();
-    return typeof j.quantité_49 === "number" ? j.quantité_49 : 0;
+async function fetchAirtableQty(inventoryItemNumericId: number): Promise<number> {
+  const res = await fetch(
+    `/api/airtable/stocks42-49?inventoryItemNumericId=${inventoryItemNumericId}`,
+    { cache: "no-store" }
+  );
+  if (!res.ok) {
+    const txt = await res.text().catch(() => "");
+    console.error("[UI] GET quantité_49 fail", res.status, txt);
+    return 0; // fallback visuel
   }
+  const j = await res.json();
+  return typeof j.quantité_49 === "number" ? j.quantité_49 : 0;
+}
 
   function sortVariants(input: VariantInventory[]): VariantInventory[] {
     return [...input].sort((a, b) => {

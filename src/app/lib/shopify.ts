@@ -1,3 +1,5 @@
+// src\app\lib\shopify.ts
+
 const SHOPIFY_ADMIN_API = process.env.SHOPIFY_ADMIN_API!;
 const SHOPIFY_API_TOKEN = process.env.SHOPIFY_API_TOKEN!;
 

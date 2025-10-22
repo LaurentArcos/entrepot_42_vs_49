@@ -1,3 +1,5 @@
+// src\app\api\shopify\search-products\route.ts
+
 import { shopifyGraphQL } from "../../../lib/shopify";
 import { NextRequest, NextResponse } from "next/server";
 
